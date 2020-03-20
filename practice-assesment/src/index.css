@@ -11,5 +11,21 @@ body {
 
 .nav {
   grid-area: nav;
-  background-color: red;
+  background-color: rgb(255, 1, 1);
+  height: 45px;
+  margin-left: 37px;
+  margin-right: 37px;
+  margin-top: 10px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+.container {
+  position: absolute;
+  padding-top: 15px;
+  padding-left: 120px;
+  font-family: sans-serif;
+}
+
+.a {
+  margin-left: 40px;
 }
