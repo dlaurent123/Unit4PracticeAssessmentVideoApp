@@ -7,6 +7,14 @@ const NavBar = () => {
     <div className="nav">
       <div className="container">
         <NavLink
+          className="tube"
+          style={{ color: "white", textDecoration: "none" }}
+          exact
+          to="/"
+        >
+          Youtube
+        </NavLink>{" "}
+        <NavLink
           style={{ color: "white", textDecoration: "none" }}
           exact
           to="/"
