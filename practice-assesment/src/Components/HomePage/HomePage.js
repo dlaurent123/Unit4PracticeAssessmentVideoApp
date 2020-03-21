@@ -1,13 +1,26 @@
 import React, { useState } from "react";
+import axios from "axios";
+import key from "../../apiKey";
 
 const HomePage = () => {
   const [searched, setSearched] = useState("false");
+  const [input, setInput] = useState("");
 
+  const search = async e => {
+    e.preventDefault();
+    let res = await axios.get(
+      `https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${input}&maxResults=8&key=${key}`
+    );
+    debugger;
+  };
   return (
     <div className="content">
       <div className="formContainer">
-        <form>
+        <form onSubmit={search}>
           <input
+            onChange={e => {
+              setInput(e.target.value);
+            }}
             style={{ width: "1000px", height: "24px" }}
             placeholder="Search..."
           ></input>
@@ -44,11 +57,12 @@ const HomePage = () => {
               style={{
                 marginLeft: "20px",
                 marginTop: "13px",
-                fontSize: "smaller",
-                fontWeight: "500"
+                fontSize: "larger",
+                fontWeight: "200",
+                fontFamily: "monospace"
               }}
             >
-              No Search Results Yet! Please submit a search above
+              No Search Results Yet!, Please submit a search above
             </p>
           </div>
         )}

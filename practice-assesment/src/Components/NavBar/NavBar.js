@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import youtubeLogo from "../../Images/youtube-logo-png-clip-art.png";
 
 const NavBar = () => {
   return (
