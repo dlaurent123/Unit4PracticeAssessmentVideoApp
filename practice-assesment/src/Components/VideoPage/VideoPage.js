@@ -1,7 +1,7 @@
 import React from "react";
 
 const VideoPage = () => {
-  return <di>Video</di>;
+  return <div>Video</div>;
 };
 
 export default VideoPage;

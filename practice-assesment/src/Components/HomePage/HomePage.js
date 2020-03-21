@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import key from "../../apiKey";
+import Videos from "../Videos/Videos";
 
-const HomePage = () => {
+const HomePage = ({ getVideoId }) => {
   const [searched, setSearched] = useState("false");
   const [input, setInput] = useState("");
+  const [vids, setVids] = useState("");
 
   const search = async e => {
     e.preventDefault();
     let res = await axios.get(
       `https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${input}&maxResults=8&key=${key}`
     );
-    debugger;
+    setVids(res.data.items);
+    setSearched(true);
   };
   return (
     <div className="content">
@@ -37,33 +40,35 @@ const HomePage = () => {
           ></input>
         </form>
       </div>
-      <div
-        className="res"
-        style={{ display: "flex", justifyContent: "center" }}
-      >
+
+      <div className="res">
         {searched === true ? (
-          <div> yes </div>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <Videos vids={vids} />
+          </div>
         ) : (
-          <div
-            style={{
-              backgroundColor: "rgb(212, 212, 212)",
-              marginTop: "50px",
-              width: "1000px",
-              height: "40px",
-              borderRadius: "2px"
-            }}
-          >
-            <p
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div
               style={{
-                marginLeft: "20px",
-                marginTop: "13px",
-                fontSize: "larger",
-                fontWeight: "200",
-                fontFamily: "monospace"
+                backgroundColor: "rgb(212, 212, 212)",
+                marginTop: "50px",
+                width: "1000px",
+                height: "40px",
+                borderRadius: "2px"
               }}
             >
-              No Search Results Yet!, Please submit a search above
-            </p>
+              <p
+                style={{
+                  marginLeft: "20px",
+                  marginTop: "13px",
+                  fontSize: "larger",
+                  fontWeight: "200",
+                  fontFamily: "monospace"
+                }}
+              >
+                No Search Results Yet!, Please submit a search above
+              </p>
+            </div>
           </div>
         )}
       </div>
