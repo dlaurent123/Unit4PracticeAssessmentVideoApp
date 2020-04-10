@@ -8,43 +8,42 @@ const HomePage = ({ getVideoId }) => {
   const [input, setInput] = useState("");
   const [vids, setVids] = useState("");
 
-  const search = async e => {
+  const search = async (e) => {
     e.preventDefault();
     let res = await axios.get(
       `https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${input}&maxResults=8&key=${key}`
     );
     setVids(res.data.items);
     setSearched(true);
+    // debugger;
   };
   return (
     <div className="content">
       <div className="formContainer">
         <form onSubmit={search}>
           <input
-            onChange={e => {
+            className="inny"
+            onChange={(e) => {
               setInput(e.target.value);
             }}
-            style={{ width: "1000px", height: "24px" }}
+            // style={{ width: "1000px", height: "24px" }}
             placeholder="Search..."
           ></input>
-          <input
-            style={{
-              color: "white",
-              backgroundColor: "rgb(204, 0, 0)",
-              height: "31px",
-              width: " 100px",
-              borderRadius: " 7px"
-            }}
-            type="submit"
-            value="Search"
-          ></input>
+          <input className="put" type="submit" value="Search"></input>
         </form>
       </div>
 
       <div className="res">
         {searched === true ? (
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
-            <Videos vids={vids} />
+          <div
+            className="whole"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              justifyItems: "center",
+            }}
+          >
+            <Videos getVideoId={getVideoId} vids={vids} />
           </div>
         ) : (
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -54,7 +53,7 @@ const HomePage = ({ getVideoId }) => {
                 marginTop: "50px",
                 width: "1000px",
                 height: "40px",
-                borderRadius: "2px"
+                borderRadius: "2px",
               }}
             >
               <p
@@ -63,7 +62,7 @@ const HomePage = ({ getVideoId }) => {
                   marginTop: "13px",
                   fontSize: "larger",
                   fontWeight: "200",
-                  fontFamily: "monospace"
+                  fontFamily: "monospace",
                 }}
               >
                 No Search Results Yet!, Please submit a search above

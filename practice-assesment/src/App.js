@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
+
 import "./reset.css";
 import "./App.css";
 import NavBar from "./Components/NavBar/NavBar";
@@ -10,7 +10,7 @@ import { Route } from "react-router-dom";
 
 function App() {
   const [videoId, setVideoId] = useState("");
-  const getVideoId = id => {
+  const getVideoId = (id) => {
     setVideoId(id);
   };
   return (
