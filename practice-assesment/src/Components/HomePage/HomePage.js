@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import key from "../../apiKey";
+// import { apiKey } from "../../apiKey";
+import apiKey2 from "../../apiKey";
+// import { apiKey3 } from "../../apiKey";
 import Videos from "../Videos/Videos";
 
 const HomePage = ({ getVideoId }) => {
@@ -11,7 +13,7 @@ const HomePage = ({ getVideoId }) => {
   const search = async (e) => {
     e.preventDefault();
     let res = await axios.get(
-      `https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${input}&maxResults=8&key=${key}`
+      `https://www.googleapis.com/youtube/v3/search/?part=snippet&q=${input}&maxResults=8&key=${apiKey2}`
     );
     setVids(res.data.items);
     setSearched(true);
@@ -49,7 +51,8 @@ const HomePage = ({ getVideoId }) => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div
               style={{
-                backgroundColor: "rgb(212, 212, 212)",
+                // backgroundColor: "rgb(212, 212, 212)",
+                backgroundColor: "lightcoral",
                 marginTop: "50px",
                 width: "1000px",
                 height: "40px",
@@ -63,9 +66,10 @@ const HomePage = ({ getVideoId }) => {
                   fontSize: "larger",
                   fontWeight: "200",
                   fontFamily: "monospace",
+                  textAlign: "center",
                 }}
               >
-                No Search Results Yet!, Please submit a search above
+                No search results yet! Please submit a search above
               </p>
             </div>
           </div>
