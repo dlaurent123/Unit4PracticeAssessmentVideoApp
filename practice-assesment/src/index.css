@@ -11,7 +11,7 @@ body {
   margin-left: 70px;
   margin-top: 40px;
   padding: 10px;
-  box-shadow: 5px 10px 8px #ff0100;
+  box-shadow: 5px 10px 8px lightcoral;
 }
 
 .content {
@@ -108,12 +108,13 @@ img {
 .pp {
   font-family: monospace;
   font-size: large;
+  margin-top: 10px;
 }
 
 .inny {
   width: 579px;
   height: 32px;
-  border-radius: 2px;
+  border-radius: 7px;
   border-width: 1px;
   border-top-color: white;
   outline: none;
@@ -122,4 +123,74 @@ img {
 .put {
   height: 32px;
   background-image: url("./Images/maggy.png");
+  border-radius: 3px;
+}
+
+.video {
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+  height: 600px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-radius: 10px;
+  flex-direction: column;
+  text-align: center;
+}
+
+.tubby {
+  border-radius: 10px;
+  /* padding: 10px; */
+  box-shadow: 5px 10px 8px #888888;
+}
+.contentt {
+  margin-top: 20px;
+
+  font-family: monospace;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: auto;
+
+  padding: 4px;
+  box-shadow: 5px 10px 8px #888888;
+}
+.helper {
+  /* margin-right: 346px; */
+}
+
+.views {
+  color: #696969;
+  margin-right: 96px;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-left: 118px;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.tite {
+  font-size: 20px;
+
+  font-weight: 600;
+}
+
+.aboutDiv {
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: center; */
+  height: 193px;
+  padding: 4px;
+  background-color: #f9f9f9;
+  box-shadow: 5px 10px 8px lightslategrey;
+  margin-left: 28%;
+  margin-right: 28%;
+  margin-top: 99px;
+  border-radius: 10px;
+  display: flex;
+}
+
+.aboutDiv:hover {
+  transform: scale(1.3);
 }
